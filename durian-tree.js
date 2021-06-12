@@ -13,10 +13,25 @@ class Employee {
   get numberOfSubordinates() {
     return this.subordinates.length;
   }
+
+  get numberOfPeopleToCEO() {
+    let numberOfPeople = 0;
+    let currentEmployee = this;
+
+    // climb "up" the tree (using iteration), counting nodes, until no boss is found
+    while (currentEmployee.boss) {
+      currentEmployee = currentEmployee.boss;
+      numberOfPeople++;
+    }
+
+    return numberOfPeople;
+  }
+  hasSameBoss(employee) {
+    return this.boss === employee.boss;
+  }
 }
+
 // -------- Adding more employees to the class-------//
-
-
 const ada = new Employee("Ada", "CEO", 3000000.00);
 const craig    = new Employee("Craig", "VP Software", 1000000);
 const arvinder = new Employee("Arvinder", "Chief Design Officer", 1000000);
@@ -30,6 +45,8 @@ ada.addSubordinate(phil);
 
 
 //console.log(ada);
+console.log(phil);
+
 
 // ------------ A function that returns the number of subordinates an employee has. ---------------//
 
