@@ -10,7 +10,12 @@ class Employee {
     this.subordinates.push(subordinate);
     subordinate.boss = this;
   }
+  get numberOfSubordinates() {
+    return this.subordinates.length;
+  }
 }
+// -------- Adding more employees to the class-------//
+
 
 const ada = new Employee("Ada", "CEO", 3000000.00);
 const craig    = new Employee("Craig", "VP Software", 1000000);
@@ -19,6 +24,12 @@ const angela   = new Employee("Angela", "VP Retail", 1000000);
 const phil     = new Employee("Phil", "VP Marketing", 1000000);
 
 ada.addSubordinate(craig);
+ada.addSubordinate(arvinder);
+ada.addSubordinate(angela);
+ada.addSubordinate(phil);
 
 
-console.log(Employee);
+//console.log(ada);
+
+// ------------ A function that returns the number of subordinates an employee has. ---------------//
+
